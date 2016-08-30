@@ -1,0 +1,33 @@
+<div class="content">
+
+    <md-card elevation="5">
+
+      <md-card-title>
+        <h2>Karmasoc Register</h2>
+      </md-card-title>
+
+      <md-card-content>
+
+        <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #registerForm="ngForm">
+          <md-input formControlName="name" required placeholder="Name"></md-input>
+          <md-input formControlName="username" required placeholder="Username"></md-input>
+          <md-input formControlName="email" required placeholder="email@example.com"></md-input>
+          <md-input formControlName="password" required placeholder="Password" type="password"></md-input>
+          <button type="submit" [disabled]="!registerForm.form.valid" md-raised-button color="primary">Register</button>
+        </form>
+
+        <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
+
+        <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
+
+        <br>
+        <hr>
+
+        <button (click)="login()" md-raised-button color="accent">Login</button>
+
+
+      </md-card-content>
+
+    </md-card>
+
+</div>

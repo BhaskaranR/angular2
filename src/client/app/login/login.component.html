@@ -1,0 +1,33 @@
+<div class="content">
+
+    <md-card  elevation="5">
+
+      <md-card-title>
+        <h2>Karmasoc Login</h2>
+      </md-card-title>
+
+      <md-card-content>
+
+        <button (click)="openAuthWindow('google')" md-raised-button color="primary">Google</button>
+        <button (click)="openAuthWindow('twitter')" md-raised-button color="primary">Twitter</button>
+
+        <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <md-input formControlName="username" required placeholder="Username"></md-input>
+          <md-input formControlName="password" required placeholder="Password" type="password"></md-input>
+          <button type="submit" [disabled]="!loginForm.form.valid" md-raised-button color="primary">Login</button>
+        </form>
+
+        <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
+
+        <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
+
+        <br>
+        <hr>
+
+        <button (click)="register()" md-raised-button color="accent">Register</button>
+
+      </md-card-content>
+
+    </md-card>
+
+</div>
